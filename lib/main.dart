@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(title: Text("First App")),
         body: Column(
           children: <Widget>[
-            Text("Question"),
+            Question(questions[_questionIndex]),
             RaisedButton(
                 child: Text(questions[_questionIndex]),
                 onPressed: answerQuestion),
