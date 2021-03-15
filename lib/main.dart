@@ -15,7 +15,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int _questionIndex = 0;
 
-  List<Map> questions = [
+  static const List<Map> questions = const [
     {
       "questionText": "What is your favourite colour?",
       "answer": ["Black", "Red", "Green", "White"]
