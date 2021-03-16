@@ -31,9 +31,11 @@ class _MyAppState extends State<MyApp> {
   ];
 
   void _answerQuestion() {
-    setState(() {
-      _questionIndex = _questionIndex + 1;
-    });
+    if (_questionIndex < questions.length) {
+      setState(() {
+        _questionIndex = _questionIndex + 1;
+      });
+    }
   }
 
   @override
