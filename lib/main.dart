@@ -18,19 +18,38 @@ class _MyAppState extends State<MyApp> {
   final List<Map> _questions = const [
     {
       "questionText": "What is your favourite colour?",
-      "answer": ["Black", "Red", "Green", "White"]
+      "answer": [
+        {"text": "Black", "score": 14},
+        {"text": "Red", "score": 8},
+        {"text": "Green", "score": 7},
+        {"text": "White", "score": 11}
+      ]
     },
     {
       "questionText": "What is your favourite animal?",
-      "answer": ["Rabbit", "Dog", "Lion", "Snake"]
+      "answer": [
+        {"text": "Lion", "score": 8},
+        {"text": "Dog", "score": 15},
+        {"text": "Sheep", "score": 6},
+        {"text": "Snake", "score": 0}
+      ]
     },
     {
       "questionText": "What is your favourite video game?",
-      "answer": ["CoD:MW", "Starcraft", "Halo", "Gears of War"]
+      "answer": [
+        {"text": "CoD:MW", "score": 10},
+        {"text": "Starcraft", "score": 7},
+        {"text": "Halo", "score": 12},
+        {"text": "Gears of War", "score": 13}
+      ]
     },
   ];
 
-  void _answerQuestion() {
+  int _totalScore = 0;
+
+  void _answerQuestion(int score) {
+    _totalScore += score;
+
     if (_questionIndex < _questions.length) {
       setState(() {
         _questionIndex = _questionIndex + 1;
@@ -49,7 +68,7 @@ class _MyAppState extends State<MyApp> {
                 questionIndex: _questionIndex,
                 questions: _questions,
               )
-            : Result(),
+            : Result(_totalScore),
       ),
     );
   }
